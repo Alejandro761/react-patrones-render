@@ -18,7 +18,7 @@ function App(props) {
       <TodoSearch />  
       <TodoList>
         {todos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text}/>
+          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
         ))}
       </TodoList>
       <CreateTodoButton />
