@@ -6,6 +6,8 @@ import { AppUI } from './AppUI';
   {text: 'Ir al cine', completed: false},
   {text: 'Aprender React', completed: false},
 ] */
+
+//stringify para hacerlo string, pasrse para hacerlo un objeto
  
 function App() {
   const localStorageTodos = localStorage.getItem('TODOS_V1');
@@ -38,8 +40,8 @@ function App() {
 
   const saveTodos = (newTodos) => {
     const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
+    localStorage.setItem('TODOS_V1', stringifiedTodos); //actualizacion en local storage
+    setTodos(newTodos); //actualizacion en el estado de react
   };
 
   const completeTodo = (text) => {
