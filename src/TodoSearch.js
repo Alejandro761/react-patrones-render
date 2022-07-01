@@ -1,8 +1,8 @@
 import React from "react";
 import './TodoSearch.css';
 
-function TodoSearch() {
-  const [searchValue, setSearchValue] = React.useState(''); //useState retorna un array, la primera posición retorna el estado ('Ale'), y la segunda nos regresa una funcion para editar el estado
+function TodoSearch({searchValue, setSearchValue}) {
+  // const [searchValue, setSearchValue] = React.useState(''); //useState retorna un array, la primera posición retorna el estado ('Ale'), y la segunda nos regresa una funcion para editar el estado
 
   const onSearchValueChange = (event) => {
     console.log(event.target.value);

@@ -6,11 +6,12 @@ import './TodoCounter.css';
 //   backgroundColor: 'black',
 //  }; este objeto se puede pasar como los estilos
 
-function TodoCounter() {
-    return (
-      // <h2 style={styles}>Has completado 2 de 3 TODOs</h2> una forma de agregar css en react es ponerle style y pasarle un objeto
-      <h2 className='TodoCounter' >Has completado 2 de 3 TODOs</h2>
-    );
+function TodoCounter({total, completed}) {
+
+  return (
+    // <h2 style={styles}>Has completado 2 de 3 TODOs</h2> una forma de agregar css en react es ponerle style y pasarle un objeto
+    <h2 className='TodoCounter'> Has completado {completed} de {total} TODOs</h2>
+  );
 }
 
 export {TodoCounter};
