@@ -1,7 +1,7 @@
 import React from 'react';
 import './TodoCounter.css';
 
-// const styles = {
+// constApp styles = {
 //   color: 'white',
 //   backgroundColor: 'black',
 //  }; este objeto se puede pasar como los estilos
