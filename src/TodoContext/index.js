@@ -29,12 +29,21 @@ const TodoProvider = (props) => {
       })
     }
 
+    const addTodo = (text) => {
+      const newTodos = [...todos];
+      newTodos.push({
+        completed: false,
+        text: text
+      });
+      saveTodos(newTodos);
+    }
+
     const completeTodo = (text) => {
       const todoIndex = todos.findIndex(todo => todo.text == text);
       
-      const newItem = [...todos];
-      newItem[todoIndex].completed = true;
-      saveTodos(newItem);
+      const newTodos = [...todos];
+      newTodos[todoIndex].completed = true;
+      saveTodos(newTodos);
     }
     
     const deleteTodo = (text) => {
@@ -66,6 +75,7 @@ const TodoProvider = (props) => {
             deleteTodo,
             openModal,
             setOpenModal,
+            addTodo
         }}>
             {props.children}
         </TodoContext.Provider>

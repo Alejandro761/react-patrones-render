@@ -3,11 +3,7 @@ import './CreateTodoButton.css';
 
 const CreateTodoButton = (props) => {
   const onClickButton = () => {
-    if (props.openModal) {
-      props.setOpenModal(false);
-    } else {
-      props.setOpenModal(true);
-    }
+    props.setOpenModal(prevState => !prevState); //para alternar entre true y false
   }
 
     return ( 

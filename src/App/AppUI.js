@@ -6,6 +6,7 @@ import {TodoList} from '../TodoList';
 import {TodoItem} from '../TodoItem';
 import {TodoContext} from '../TodoContext';
 import {Modal} from '../Modal';
+import { TodoForm } from "../TodoForm";
 
 function AppUI() {
     const {
@@ -44,11 +45,12 @@ function AppUI() {
             
             {openModal && (
                 <Modal>
-                <p>{searchedTodos[0]?.text}</p> {/* el ? le pregunta si existe el array, si no existe entonces no lo pone */}
+                    <TodoForm></TodoForm>
+                {/* <p>{searchedTodos[0]?.text}</p> el ? le pregunta si existe el array, si no existe entonces no lo pone */}
                 </Modal>
             )}
 
-            <CreateTodoButton setOpenModal={setOpenModal} openModal={openModal} />
+            <CreateTodoButton setOpenModal={setOpenModal} />
         </React.Fragment>
     );
 }
