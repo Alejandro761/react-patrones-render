@@ -1,22 +1,22 @@
 import React from "react";
+import { TodoContext } from "../TodoContext";
 import './TodoSearch.css';
 
-function TodoSearch({searchValue, setSearchValue}) {
-  // const [searchValue, setSearchValue] = React.useState(''); //useState retorna un array, la primera posición retorna el estado ('Ale'), y la segunda nos regresa una funcion para editar el estado
+function TodoSearch() {
+  const {searchValue, setSearchValue} = React.useContext(TodoContext);
 
   const onSearchValueChange = (event) => {
     console.log(event.target.value);
     setSearchValue(event.target.value);
   }
 
-  return [
+  return (
     <input
       className="TodoSearch"
       placeholder="Tacos" 
       value={searchValue}
-      onChange={onSearchValueChange} />, //on change es un evento cuando escribes en el input 
-      <p>{searchValue}</p>
-  ];
+      onChange={onSearchValueChange} /> //on change es un evento cuando escribes en el input 
+  );
 }
 
 export {TodoSearch};
