@@ -6,9 +6,11 @@ import {TodoSearch } from '../TodoSearch';
 import {CreateTodoButton } from '../CreateTodoButton';
 import {TodoList} from '../TodoList';
 import {TodoItem} from '../TodoItem';
-// import {TodoContext} from '../TodoContext';
 import {Modal} from '../Modal';
 import { TodoForm } from "../TodoForm";
+import {TodosError} from '../TodosError'
+import {TodosLoading} from '../TodosLoading';
+import {EmptyTodos} from '../EmptyTodos';
 
 /* const defaultTodos = [
   {text: 'Comer tacos', completed: false},
@@ -44,19 +46,25 @@ function App() {
                 setSearchValue={setSearchValue} />  
         </TodoHeader>
 
-        <TodoList>
-            {error && <p>Estamos cargando</p> } {/* error && pregunta si error es true */}
-            {loading && <p>Estamos cargando</p>} {/* error && pregunta si error es true */}
-            {(!loading && !searchedTodos.length /* quiere decir que si su tamaño es 0 */) && <p>Crea tu primer todo!</p> } {/* la primera && se comporta con AND, y la segunda que es junto al elemento es lo que se pondra si se cumpla la condicion */}
-            {searchedTodos.map(todo => (
-              <TodoItem 
+        <TodoList error={error} 
+          loading={loading}
+          searchedTodos={searchedTodos}
+          totalTodos = {totalTodos}
+          searchValue = {searchValue}
+          onError={() => <TodosError /> }
+          onLoading = {() => <TodosLoading/> }
+          onEmptyTodos = {() => <EmptyTodos/> }
+          onEmptySearchResults = {
+            (searchText) => <p>No hay resultado para {searchText}</p> }
+          render = {todo => (
+            <TodoItem 
                   key={todo.text}
                   text={todo.text}
                   completed={todo.completed}
                   onComplete={() => completeTodo(todo.text)}
                   onDelete={() => deleteTodo(todo.text)} />
-            ))}
-        </TodoList>
+            )}
+        />
         
         {openModal && (
             <Modal>
