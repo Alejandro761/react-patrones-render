@@ -39,7 +39,7 @@ const TodoProvider = (props) => {
     }
 
     const completeTodo = (text) => {
-      const todoIndex = todos.findIndex(todo => todo.text == text);
+      const todoIndex = todos.findIndex(todo => todo.text === text);
       
       const newTodos = [...todos];
       newTodos[todoIndex].completed = true;
@@ -47,7 +47,7 @@ const TodoProvider = (props) => {
     }
     
     const deleteTodo = (text) => {
-      const todoIndex = todos.findIndex(todo => todo.text == text);
+      const todoIndex = todos.findIndex(todo => todo.text === text);
       
       const newItem = [...todos];
       newItem.splice(todoIndex, 1);
