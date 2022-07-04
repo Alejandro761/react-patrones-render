@@ -1,4 +1,5 @@
 import React from "react";
+import { TodoHeader } from "../TodoHeader";
 import {TodoCounter} from '../TodoCounter';
 import {TodoSearch } from '../TodoSearch';
 import {CreateTodoButton } from '../CreateTodoButton';
@@ -25,10 +26,14 @@ function AppUI() {
 
     return (
         <React.Fragment>
-            <TodoCounter />
-            <TodoSearch />  
 
-        
+            <TodoHeader>
+                <TodoCounter totalTodos={totalTodos} 
+                    completedTodos={completedTodos} />
+                <TodoSearch searchValue={searchValue} 
+                    setSearchValue={setSearchValue} />  
+            </TodoHeader>
+
             <TodoList>
                 {error && <p>Estamos cargando</p> } {/* error && pregunta si error es true */}
                 {loading && <p>Estamos cargando</p>} {/* error && pregunta si error es true */}

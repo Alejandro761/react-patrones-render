@@ -9,7 +9,7 @@ import {TodoProvider} from '../TodoContext'
 ] */
 
 //stringify para hacerlo string, pasrse para hacerlo un objeto
- 
+
 function App() {
   return (
     <TodoProvider>
