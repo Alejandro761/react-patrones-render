@@ -11,7 +11,7 @@ const TodoList = (props) => {
 
             {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchValue)}
             {/* {props.searchedTodos.map(todo => props.render(todo))} otra manera  */}
-            {props.searchedTodos.map(props.render)}
+            {(!props.loading && !props.error) && props.searchedTodos.map(props.render)}
             
             <ul>
                 {props.children}
