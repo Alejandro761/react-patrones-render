@@ -11,7 +11,7 @@ import { TodoForm } from "../TodoForm";
 import {TodosError} from '../TodosError'
 import {TodosLoading} from '../TodosLoading';
 import {EmptyTodos} from '../EmptyTodos';
-import {ChangeAlertWithStorageListener} from '../ChangeAlert'
+import {ChangeAlert} from '../ChangeAlert'
 
 /* const defaultTodos = [
   {text: 'Comer tacos', completed: false},
@@ -79,7 +79,7 @@ function App() {
 
         <CreateTodoButton setOpenModal={setOpenModal} />
 
-        <ChangeAlertWithStorageListener sincronize={sincronizeTodos} />
+        <ChangeAlert sincronize={sincronizeTodos} />
     </React.Fragment>
 );
 }
